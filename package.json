@@ -1,0 +1,28 @@
+{
+  "name": "articles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format:html": "npx prettier --write '*.html'",
+    "watch:html": "onchange '**/*.html' -- npm run format:html",
+    "watch:tailwindcss": "tailwindcss -i ./styles/tailwind.css -o ./styles/main.css --watch",
+    "dev": "concurrently 'npm run watch:html' 'npm run watch:tailwindcss'",
+    "build:tailwindcss": "NODE_ENV=production npx tailwindcss -o ./styles/main.css --minify",
+    "build": "npm run format:html && npm run build:tailwindcss"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.9",
+    "autoprefixer": "^10.4.14",
+    "concurrently": "^8.1.0",
+    "onchange": "^7.1.0",
+    "postcss": "^8.4.24",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "tailwindcss": "^3.3.2"
+  }
+}
